@@ -50,7 +50,8 @@ const userSchema = {
     },
     address: {
         type: addressShcema,
-        required: false
+        required: false,
+        default:""
     },
 
 

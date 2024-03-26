@@ -5,8 +5,10 @@ const app = express();
 dotenv.config();
 const userRoutes=require("./routes/user")
 const productRouter=require("./routes/products")
-const cartRouter=require("./routes/card")
-
+const cartRouter=require("./routes/cart")
+const CoopanRouter=require("./routes/coopan")
+const PaymentRouter=require("./routes/Payment")
+const OrderRouter=require("./routes/order")
 // --------------------DB Connect ------------------------------
 if (process.env.SERVER=="LOCAL") {
     mongoose
@@ -33,7 +35,10 @@ app.use(express.json());
 
 app.use("/api/v1/user/", userRoutes);
 app.use("/api/v1/",productRouter);
-app.use("/api/v1/",cartRouter);
+app.use("/api/v1/cart",cartRouter);
+app.use("/api/v1/coopan",CoopanRouter);
+app.use("/api/v1/payment",PaymentRouter);
+app.use("/api/v1/order",OrderRouter)
 
 app.listen(process.env.PORT, () => {
   console.log("listening on "+process.env.PORT);
