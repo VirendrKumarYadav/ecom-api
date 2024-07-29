@@ -1,80 +1,80 @@
-# ECOM-BACKEND -APIS
+# 📦 ECOM-BACKEND - APIs Documentation
 
-### Host Link      
-<a href="https://ecom-api-eujc.onrender.com">https://ecom-api-eujc.onrender.com</a> 
+### 🌐 BASE URL      
+[https://ecom-api-eujc.onrender.com](https://ecom-api-eujc.onrender.com) 
 
-## USER
+## 🧑‍💼 USER
 
--- I have created the Login,Registration,get users,Reset password and forget password.
--- Please Make sure you have to pass Autherization token in header for accessing any api after Register and login 
+*I have created the following functionalities: Login, Registration, Get Users, Reset Password, and Forget Password.*
 
-### End-Points
-     HTTP Method       End-Point             Body                               Purpose of API
-     
-1.     POST         /api/v1/user/login       {
-                                              "email":"abc@gmail.com",             --Login
-                                                "password":"abc@password"
-                                            }
-2.     POST         /api/v1/user/register       {
-                                            "username": "Virendra Y",
-                                              "email":"abc@gmail.com",             --Register
-                                               "password":"abc@password",
-                                                 "role": "admin",
-                                                 "address": 
-                                                          {
-                                                           "address": "123 Main St",
-                                                            "city": "Anytown",
-                                                             "state": "CA",
-                                                             "zip": "12345"
-                                                           }(optional)
-                                            }
-   
-3.     POST         /api/v1/user/address?userid=65f2cd7f070d1227665acbcf  {                                   --Save Address    
-                                                                         "address":"abc 134bbjf",
-                                                                         "city":"bhadohi",
-                                                                          "state":"chuari bazar",
-                                                                         "pincode":"123455"
-                                                                           }
-   
-5.     POST          /api/v1/user/logout                                       NA                            -- Logout
+**Note:** Make sure to pass the Authorization token in the header for accessing any API after registration and login. 
 
-6.     POST         /api/v1/user/reset-password?userid=65f2cd       {                                        --Reset Password
-                                                                     "password":"asdfgh@password"        
-                                                                        }
+### Endpoints
 
-7.     GET        /api/v1/user/getUserID                                NA                                   --User details
+| HTTP Method | End-Point | Body | Purpose of API |
+|-------------|-----------|------|----------------|
+| POST        | /api/v1/user/login | { "email": "abc@gmail.com", "password": "abc@password" } | Login |
+| POST        | /api/v1/user/register | { "username": "Virendra Y", "email": "abc@gmail.com", "password": "abc@password", "role": "admin", "address": { "address": "123 Main St", "city": "Anytown", "state": "CA", "zip": "12345" } (optional) } | Register |
+| POST        | /api/v1/user/address?userid=65f2cd7f070d1227665acbcf | { "address": "abc 134bbjf", "city": "bhadohi", "state": "chuari bazar", "pincode": "123455" } | Save Address |
+| POST        | /api/v1/user/logout | NA | Logout |
+| POST        | /api/v1/user/reset-password?userid=65f2cd | { "password": "asdfgh@password" } | Reset Password |
+| GET         | /api/v1/user/getUserID | NA | User Details |
 
+## 🛒 PRODUCT
 
+*I have created the following functionalities: Create Products, Add Review, Like and Dislike, Get List of Products, and Get Product by ID.*
 
+**Note:** Make sure to pass the Authorization token in the header for accessing any API after registration and login.
 
-   ## Products
+### Endpoints
 
-   -- I have created the Create Products,Add Review,Like and dislike,get list of products and get product by ID.
-   -- Please Make sure you have to pass Autherization token in header for accessing any api after Register and login 
+| HTTP Method | End-Point | Body | Purpose of API |
+|-------------|-----------|------|----------------|
+| POST        | /api/v1/product | { "title": "Fjallraven - Foldsack No....", "description": "Fjallraven - Foldsack No....", "price": "123.23", "stock": "55", "brand": "Bag", "category": "Bags" } | Create Product |
+| POST        | /api/v1/product/:productId/review | { "review": "abce is sskd" } | Add Review |
+| GET         | /api/v1/products | NA | Get Product List |
+| POST        | /api/v1/product/like/productID | NA | Like & Dislike |
+| GET         | /api/v1/product-by-id?productID=65f1 | NA | Product By ID |
 
-### End-Points
-     HTTP Method       End-Point             Body                                               Purpose of API
-     
-1.     POST         /api/v1/product      {                                                      --Create Product
-                                               "title":"Fjallraven - Foldsack No....",
-                                               "description":"Fjallraven - Foldsack No....",
-                                                "price":"123.23",
-                                                "stock":"55",
-                                                  "brand":"Bag",
-                                                  "category":"Bags"
-                                                   }             
-                                           
-2.     POST         /api/v1/product/:productId/review      {                                      -- Add Review
-                                                            "review":"abce is sskd"
-                                                             }                   
-                                              
-   
-4.     GET          /api/v1/products                            NA                                 --Get Product List    
-                                                                       
-   
+## 🛍️ CART
 
-5.     POST        /api/v1/product/like/productID                 NA                                --Like & Dislike 
-                                                                   
+*I have created the following functionalities: Create Cart and Get List of Cart.*
 
-6.     GET         /api/v1/product-by-id?productID=65f1               NA                             --Product By ID
+**Note:** Make sure to pass the Authorization token in the header for accessing any API after registration and login.
 
+### Endpoints
+
+| HTTP Method | End-Point | Body | Purpose of API |
+|-------------|-----------|------|----------------|
+| POST        | /api/v1/cart/ | { "products": [ { "productID": "65f1108dfab04dd683e39ea7", "quantity": 2, "color": "Redaish Black" } ] } | Create Cart |
+| GET         | /api/v1/cart/ | NA | Get Cart |
+
+## 🎟️ COUPON
+
+*I have created the following functionalities: Create Coupon and Get List of Coupon.*
+
+**Note:** Make sure to pass the Authorization token in the header for accessing any API after registration and login.
+
+### Endpoints
+
+| HTTP Method | End-Point | Body | Purpose of API |
+|-------------|-----------|------|----------------|
+| POST        | /api/v1/coopan/ | { "couponCode": "HOLI23", "discountPercentage": 25, "maxDiscountInRs": 250, "startDate": "2024-03-15", "endDate": "2024-05-15", "isActive": true } | Create Coupon |
+| GET         | /api/v1/coopan/ | NA | Get Coupon |
+
+## 📦 ORDER
+
+*I have created the following functionalities: Create Order and Get List of Order.*
+
+**Note:** Make sure to pass the Authorization token in the header for accessing any API after registration and login.
+
+### Endpoints
+
+| HTTP Method | End-Point | Body | Purpose of API |
+|-------------|-----------|------|----------------|
+| POST        | /api/v1/order/?userID=65ecab | { "coupan": "HOLI24", "deliveryAddress": { "address": "abc 134bbjf", "city": "bhadohi", "state": "chuari bazar", "pincode": "123455" }, "modeOfPayment": "ONLINE" } | Create Order |
+| GET         | /api/v1/order/ | NA | Get Order |
+
+---
+
+Feel free to explore the endpoints and integrate them into your application! 🚀
